@@ -1,3 +1,3 @@
-passwd=
-user=
-server=
+passwd=""
+user=""
+server=""
