@@ -43,7 +43,7 @@ for el in sys.argv[2:]:
 
 
     #print  issue_dict
-    r = j.create_issue(fields=qa_issue_dict)
+    r = j.create_issue(fields=issue_dict)
     r=r.fields.labels.append('clone')
     print "Created:", r.key
 
