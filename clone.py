@@ -7,6 +7,7 @@ from cred import *
 if len(sys.argv) < 3:
     print "Usage:"
     print "\t clone.py task_key fix_version_1 [fix_version_2] [fix_version_3] ..."
+    sys.exit(0)
 
 j = JIRA(options = {'server':server},basic_auth=(user, passwd))
 parent = j.issue(sys.argv[1])
@@ -44,7 +45,7 @@ for el in sys.argv[2:]:
 
     #print  issue_dict
     r = j.create_issue(fields=issue_dict)
-    r=r.fields.labels.append('clone')
+    r.fields.labels.append('clone')
     r.update(fields={"labels": r.fields.labels})
     print "Created:", r.key
 
