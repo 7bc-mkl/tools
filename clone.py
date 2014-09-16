@@ -17,7 +17,7 @@ parentKey=parent.key
 parentPrioName=parent.fields().priority.name
 parentAssignee=parent.fields().assignee.name
 taskType=parent.fields().customfield_10049.value
-wo=parent.fields().customfield_11311.value
+wo=parent.fields().customfield_11311.value if parent.fields().customfield_11311 else None
 if parent.fields().issuetype.name=='Sub-task':
     topTask=parent.fields().parent.key
 else:
@@ -38,9 +38,12 @@ for el in sys.argv[2:]:
      'parent' : {'key':topTask},
      'assignee' : {'name': parentAssignee},
      'fixVersions' : [{'name': el}],
-     'customfield_11311' : {'value':wo}
+     
     }
-
+    if wo:
+        issue_dict['customfield_11311'] = {'value':wo}
+    else:
+        print "Warning! No WorkOrder value set in", sys.argv[1]
 
 
     #print  issue_dict
