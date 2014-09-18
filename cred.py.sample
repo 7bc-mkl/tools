@@ -1,0 +1,4 @@
+passwd="my-password"
+user="my-user"
+# well, really, change it!
+server="https://jira.atlassian.com/secure"
