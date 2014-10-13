@@ -1,0 +1,32 @@
+PRJ_DEV = 'ABCDEV'
+
+# todo: also "bound" to subtask type
+qaType = 'QA'
+taType = 'TA'
+baType = 'BA'
+devType = 'Development'
+
+
+class SubtaskType(object):
+    dev = 'dev'
+    ba = 'ba'
+    ta = 'ta'
+    qa = 'qa'
+
+
+default_assignees = {
+    PRJ_DEV: {
+        SubtaskType.dev: 'johny',
+        SubtaskType.ba: 'frankie',
+        SubtaskType.ta: 'sybille',
+        SubtaskType.qa: 'agnes'
+    }
+
+}
+
+# todo: should it be project-specific?
+# todo: get/set properties here as well
+class CustomFields(object):
+    WO = 'customfield_11311'
+    TASK_TYPE = 'customfield_10049'
+    EXTERNAL_ID = 'customfield_10034'

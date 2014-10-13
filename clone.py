@@ -1,10 +1,12 @@
 from jira.client import JIRA
 import sys, json
 from cred import *
+from config import *
 
 
 def parse_args():
     from argparse import ArgumentParser
+
     ap = ArgumentParser(description='JIRA tools for anonymous project')
     ap.add_argument('task_key',
                     action='store')
@@ -21,6 +23,7 @@ def parse_args():
                     default=False)
 
     return ap.parse_args()
+
 
 if __name__ == '__main__':
 
@@ -51,7 +54,7 @@ if __name__ == '__main__':
                       'summary': 'CLONE %s: %s' % (versionPrefix, parentSummary),
                       'description': '%s clone. Please see %s for details' % (versionPrefix, parentKey),
                       'issuetype': {'name': 'Sub-task'},
-                      'customfield_10049': {'value': taskType},
+                      CustomFields.TASK_TYPE: {'value': taskType},
                       'priority': {'name': parentPrioName},
                       'parent': {'key': topTask},
                       'assignee': {'name': asignee_name},
@@ -59,7 +62,7 @@ if __name__ == '__main__':
 
         }
         if wo:
-            issue_dict['customfield_11311'] = {'value': wo}
+            issue_dict[CustomFields.WO] = {'value': wo}
         else:
             print "Warning! No WorkOrder value set in", args.task_key
 
