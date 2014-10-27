@@ -30,3 +30,11 @@ class CustomFields(object):
     WO = 'customfield_11311'
     TASK_TYPE = 'customfield_10049'
     EXTERNAL_ID = 'customfield_10034'
+
+
+EXTERNAL_WO = '123-some-code'
+EXTERNAL_TASK_TYPE = 'Bug'
+
+external_projects = {
+    'ABCEXT': 'ABCDEV'
+}
