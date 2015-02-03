@@ -38,3 +38,6 @@ EXTERNAL_TASK_TYPE = 'Bug'
 external_projects = {
     'ABCEXT': 'ABCDEV'
 }
+
+# from "1.2.3.102" version number it'll take first 2 parts, so "1.2"
+parts_in_number_for_prefix = 2

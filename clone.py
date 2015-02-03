@@ -79,7 +79,7 @@ if __name__ == '__main__':
 
         print "Creating task for", version
 
-        versionPrefix = '.'.join(version.split('.')[:2])
+        versionPrefix = '.'.join(version.split('.')[:parts_in_number_for_prefix])
 
         if pseudoclone4external():
             summary = '%s: %s' % (src_key, src_summary)
