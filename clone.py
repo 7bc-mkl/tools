@@ -69,8 +69,11 @@ if __name__ == '__main__':
         else:
             topTask = src_key
 
-    if not wo and pseudoclone4external():
-        wo = EXTERNAL_WO
+    if not wo:
+        if pseudoclone4external():
+            wo = EXTERNAL_WO
+        else:
+            wo = src_issue.fields().customfield_11311.value
 
     for version in args.fix_version:
 
